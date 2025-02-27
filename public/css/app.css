@@ -17144,7 +17144,6 @@ button {
 }
 .home_search .select2-container--classic .select2-selection--multiple {
   border: 1px solid #6aab36;
-  border-radius: 10px 0 0 10px;
   padding-bottom: 0;
   padding-right: 0;
   display: flex;

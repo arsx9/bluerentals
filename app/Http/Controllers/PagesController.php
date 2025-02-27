@@ -31,9 +31,9 @@ class PagesController extends Controller
         $search_states = implode("|",$request->key_states);
         // return response()->json($request);
         //         die();
-
         $properties = Property::orderBy('id', 'desc')
                     ->where('search_tags', 'REGEXP', $search_pattern)
+                    ->where('search_tags', 'REGEXP', $search_states)
                     ->paginate(12);
 
         $query = 'Search results for properties with '.implode(", ",$request->key_words).' and states including'.implode(",",$request->key_states);

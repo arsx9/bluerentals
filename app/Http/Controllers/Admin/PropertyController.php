@@ -71,10 +71,8 @@ class PropertyController extends Controller
         }
 
         $id = uniqid(Auth::user()->id);
-
-        $state_full_name = config('constants.states')[$request->state];
         
-        $tags = $state_full_name.", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
+        $tags = $request['state'].", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
         
         $property = Property::create([
             'property_id' => $id,
@@ -163,9 +161,7 @@ class PropertyController extends Controller
             }
         }
 
-        $state_full_name = config('constants.states')[$request->state];
-
-        $tags = $state_full_name.", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
+        $tags = $request['state'].", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
 
         $property = Property::find($id);
         $property->type = $request['type'];
