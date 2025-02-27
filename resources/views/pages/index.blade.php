@@ -12,6 +12,11 @@
             <form action="{{route('search')}}" method="GET">
                 <div class="home_search">
 
+                    <select data-placeholder="Enter State..." multiple="multiple" class="home-page-search" name="key_states[]" required>
+                    @foreach (config('constants.states') as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                    </select>
                     <select data-placeholder="Ex: 2 Beds, 2 Bathrooms..." multiple="multiple" class="home-page-search" name="key_words[]" required>
                         <option value="1 beds">1 Bed</option>
                         <option value="2 beds">2 Beds</option>
@@ -26,7 +31,6 @@
                     <button type="submit" class="home_search_button">
                         <img src="./img/search.png" alt="Search">
                     </button> 
-                    
                 </div>
             </form>
 

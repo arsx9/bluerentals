@@ -57,6 +57,7 @@ class PropertyController extends Controller
             'address' => 'required',
             'type' => 'required',
             'cost' => 'required',
+            'state' => 'required',
             'available_from' => 'required',
         ]);
 
@@ -71,12 +72,15 @@ class PropertyController extends Controller
 
         $id = uniqid(Auth::user()->id);
 
-        $tags = $request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
-
+        $state_full_name = config('constants.states')[$request->state];
+        
+        $tags = $state_full_name.", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
+        
         $property = Property::create([
             'property_id' => $id,
             'type' => $request['type'],
             'address' => $request['address'],
+            'state' => $request['state'],
             'cost' => $request['cost'],
             'bed_rooms' => $request['bed_rooms'],
             'bath_rooms' => $request['bath_rooms'],
@@ -146,6 +150,7 @@ class PropertyController extends Controller
         $this->validate($request, [
             'address' => 'required',
             'type' => 'required',
+            'state' => 'required',
             'cost' => 'required',
         ]);
 
@@ -158,11 +163,14 @@ class PropertyController extends Controller
             }
         }
 
-        $tags = $request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
+        $state_full_name = config('constants.states')[$request->state];
+
+        $tags = $state_full_name.", ".$request['address'].", ".$request['bed_rooms']." beds, ".$request['bath_rooms']." bathrooms, ".$request['type'].", ".json_encode($request->terms).", ".json_encode($request->features);
 
         $property = Property::find($id);
         $property->type = $request['type'];
         $property->address = $request['address'];
+        $property->state = $request['state'];
         $property->bed_rooms = $request['bed_rooms'];
         $property->bath_rooms = $request['bath_rooms'];
         $property->available_from = $request['available_from'];

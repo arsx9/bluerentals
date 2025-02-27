@@ -59,12 +59,28 @@
                             @enderror
                         </div>
                     </div> --}}
-                    <div class="col-sm-12">
+                    <div class="col-sm-8">
                         <div class="form-group">
                             <label for="address" class="control-label">{{ __('Address') }}</label>
                             <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" required placeholder="Address">
 
                             @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="state" class="control-label">{{ __('State') }}</label>
+                            <select name="state" class="form-control selectpicker bed_rooms  @error('bed_rooms') is-invalid @enderror" data-style="btn-info" required>
+                                <option value="" disabled>Select</option>
+                                @foreach (config('constants.states') as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                            @error('bed_rooms')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

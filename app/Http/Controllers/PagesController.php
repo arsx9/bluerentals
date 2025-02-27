@@ -28,6 +28,7 @@ class PagesController extends Controller
         $key_words = $request->input('key_words');
 
         $search_pattern = implode("|",$request->key_words);
+        $search_states = implode("|",$request->key_states);
         // return response()->json($request);
         //         die();
 
@@ -35,7 +36,7 @@ class PagesController extends Controller
                     ->where('search_tags', 'REGEXP', $search_pattern)
                     ->paginate(12);
 
-        $query = 'Search results for properties with '.implode(", ",$request->key_words);
+        $query = 'Search results for properties with '.implode(", ",$request->key_words).' and states including'.implode(",",$request->key_states);
         return view('pages.listing')->with('properties', $properties)->with('message', $query);
     }
 
