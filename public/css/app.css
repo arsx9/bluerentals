@@ -17664,7 +17664,6 @@ button.search_button {
   font-size: 24px;
   line-height: 1;
   font-weight: 500;
-  color: #FFFFFF;
 }
 
 .cell_text {
@@ -17682,7 +17681,6 @@ button.search_button {
   height: 54px;
   font-size: 16px;
   padding: 20px;
-  color: #FFFFFF;
 }
 
 .property_details iframe {
