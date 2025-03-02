@@ -35,8 +35,7 @@ class PagesController extends Controller
                     ->where('search_tags', 'REGEXP', $search_pattern)
                     ->where('search_tags', 'REGEXP', $search_states)
                     ->paginate(12);
-
-        $query = 'Search results for properties with '.implode(", ",$request->key_words).' and states including'.implode(",",$request->key_states);
+        $query = 'Search results for properties with '.implode(", ",$request->key_words).' and states including '.implode(",",$request->key_states);
         return view('pages.listing')->with('properties', $properties)->with('message', $query);
     }
 

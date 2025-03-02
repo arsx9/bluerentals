@@ -78,14 +78,14 @@ $(function() {
 
   $(".filter").on('click', function(e){
       e.preventDefault();
-      console.log("CLICKED");
-      $(".pop_up_area, .pop_up").addClass("active");
+      // console.log("CLICKED");
+      // $(".pop_up_area, .pop_up").addClass("active");
   });
 
-  $(".close_btn").on('click', function(e){
-      e.preventDefault();
-      $(".pop_up_area, .pop_up").removeClass("active");
-  });
+  // $(".close_btn").on('click', function(e){
+  //     e.preventDefault();
+  //     $(".pop_up_area, .pop_up").removeClass("active");
+  // });
 
   //Multistage Form
   var current_fs, next_fs, previous_fs; //fieldsets
