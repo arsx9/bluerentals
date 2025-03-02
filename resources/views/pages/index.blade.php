@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <button onclick="giveConsent()" class="btn accept-consent-btn mt-5 w-25">Accept</button>
+        <button onclick="giveConsent()" class="btn accept-consent-btn mt-5 w-25">I AM READY TO BEGIN</button>
     </div>
 </div>
 <div id="homepage-content">
