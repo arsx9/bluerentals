@@ -796,7 +796,9 @@ button.search_button {
 .montly_rent, .bed_room, .bath_room, .squire_feet{
     padding-left: 30px;
 }
-
+.montly_rent, .bed_room, .bath_room{
+    border-right: 1px solid black;
+}
 .property_content{
     margin: 40px 0;
 }

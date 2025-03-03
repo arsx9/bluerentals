@@ -1,39 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div id="consent-div">
-    <div id="consnt-inner-div" class="top-0 start-0 w-100 vh-100 d-flex flex-column justify-content-center align-items-center bg-light">
-        <div class="consent-heading">
-            Our Application is simple process
-        </div>
-        <div class="consent-cards-div d-flex flex-row">
-            <div class="card text-black mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="card-title">1</h2>
-                    <p class="card-text card-text-font">Complete <br>Application</p>
-                    <a class="btn consent-card-btn mt-3">Learn More</a>
-                </div>
-            </div>
-            <div class="card text-black mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="card-title">2</h2>
-                    <p class="card-text card-text-font">Upload <br>Documnet</p>
-                    <a class="btn consent-card-btn mt-3">Learn More</a>
-                </div>
-            </div>
-            <div class="card text-black mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="card-title">3</h2>
-                    <p class="card-text card-text-font">Credit <br>Report</p>
-                    <a class="btn consent-card-btn mt-3">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <button onclick="giveConsent()" class="btn accept-consent-btn mt-5 w-25">I AM READY TO BEGIN</button>
-    </div>
-</div>
-<div id="homepage-content">
     <section class="home_banner">
         <div class="container">
             <div class="banner_area">
@@ -196,7 +163,6 @@
             </div>
         </div>
     </section>
-</div>
 @include('inc.footer')
 
 <script>
@@ -215,21 +181,6 @@
         prevEl: ".swiper-button-prev",
       },
     });
-    document.addEventListener("DOMContentLoaded", function () {
-        if (localStorage.getItem("userConsent") === "accepted") {
-            document.getElementById("consent-div").style.display = "none";
-            document.getElementById("homepage-content").style.display = "block";
-        }
-        else{
-            document.getElementById("consent-div").style.display = "block";
-            document.getElementById("homepage-content").style.display = "none";
-        }
-    });
-    function giveConsent() {
-        localStorage.setItem("userConsent", "accepted"); // Store consent
-        document.getElementById("consent-div").style.display = "none";
-        document.getElementById("homepage-content").style.display = "block";
-    }
   </script>
 
 @endsection

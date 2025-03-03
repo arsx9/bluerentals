@@ -17662,6 +17662,10 @@ button.search_button {
   padding-left: 30px;
 }
 
+.montly_rent, .bed_room, .bath_room {
+  border-right: 1px solid black;
+}
+
 .property_content {
   margin: 40px 0;
 }
